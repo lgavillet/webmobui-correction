@@ -1,3 +1,23 @@
+# Cours 5 - Player
+TODO :
+Implémenter le player, en réalisant :
+- Un event listener au click sur une chanson pour pouvoir lancer la chanson
+- Une fonction exposée par le player, servant à lire la chanson en cours. Typiquement : lireChanson(laChanson, leTableauDeChanson)
+- Plusieurs fonctions liées au player, comme par exemple précédent/suivant/pause...
+- Relier les informations de la chanson dans le DOM au moment de la lecture
+
+CHANGES :
+1. Un fichier player.js a été créé dans "sections/" pour y mettre le code du player
+2. Exposé une méthode playSong prenant deux arguments, comme proposé plus haut
+3. Faire intéragir cette méthode avec les tags HTML, pour entre autre lier l'url au tag audio et le textes aux autres tags HTML. S'en servir également pour garder une référence sur les objets transmis (dans currentSongList and currentSong)
+4. Lier la méthode playSong en ajoutant un event listener au click dans sections/songs.js -> Pourquoi ici ? -> C'est là que l'on gère la logique "métier", c'est donc la que l'on décide ce qu'il se passe au clique. Le custom element est juste là pour nous dire ce qui a été cliqué
+5. Créer les fonctions next/previous
+6. Lier les boutons aux méthodes next/previous et play/pause
+7. Ajouter les event listeners au tag audio et à la progress bar pour mettre à jour l'interface en conséquence
+
+
+
+# Cours 4 - Router
 TODO :
 Implémenter la gestion des liens dans l'application, afin de :
 - Permettre de se balader dans le menu via les boutons (il faut mettre la class "active" sur la section correspondante et le bouton du menu)

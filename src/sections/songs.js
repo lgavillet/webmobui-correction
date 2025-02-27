@@ -1,4 +1,5 @@
 import { loadSongs } from '../api.js'
+import playSong from './player.js'
 
 // Récupérer le tag contenant la liste des chansons et le titre de la section
 const songList = document.querySelector('.list')
@@ -24,6 +25,13 @@ const displayArtistSongs = async (id) => {
 
     songItem.setAttribute('title', song.title)
     songItem.setAttribute('favorite', false) // ou true, pour plus tard
+
+    // Lorsque l'on clique sur l'élément (on reparlera bientôt des events listeners
+    // au sein des custom events plus en détail)
+    songItem.addEventListener('click', (e) => {
+      e.preventDefault()
+      playSong(song, songs)
+    })
 
     // Insérer dans la liste
     songList.appendChild(songItem)
