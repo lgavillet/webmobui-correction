@@ -3,12 +3,13 @@
 import './elements/artist-cover'
 import './elements/song-item'
 
+
 // Les helpers pour cacher/afficher une section et colorier les liens du menu
 import { displaySection, activateLink } from './helpers.js'
 
 // Code des sections
 import { displayArtists } from './sections/artists.js'
-import { displayArtistSongs } from './sections/songs.js'
+import { displayArtistSongs, displaySearchSongs } from './sections/songs.js'
 
 const router = () => {
   const hash = window.location.hash || '#home'
@@ -37,6 +38,11 @@ const router = () => {
         displaySection('#artists')
         displayArtists()
       }
+    break;
+
+    case '#search':
+      displaySection('#list')
+      displaySearchSongs(hashSplit[1])
     break;
 
     case '#favorites':

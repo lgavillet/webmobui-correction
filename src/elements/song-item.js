@@ -1,3 +1,5 @@
+const playClick = new CustomEvent('play_click')
+
 class SongItem extends HTMLElement {
   // Définit la liste des attributs qui seront observés et donc appelerons attributeChangedCallback
   // lorsqu'il y a une modification
@@ -34,6 +36,15 @@ class SongItem extends HTMLElement {
         </button>
       </div>
     </a>`
+
+    // Lorsque l'on clique sur "play-button", on intercepte l'évenement et on lève un évenement custom
+    // sur SongItem lui-même. Cela permet au javascript qui va utiliser SongItem de ne pas avoir à se préoccuper
+    // de sa structure, ni de re-binder l'événement si entre temps il y a eu un nouveau rendering
+    // Concept de chacun son job!
+    this.querySelector('.play-button').addEventListener('click', (e) => {
+      e.preventDefault()
+      this.dispatchEvent(playClick)
+    })
   }
 }
 

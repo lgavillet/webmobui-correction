@@ -6,4 +6,6 @@ const loadArtists = () => loadJson(`${BASE_URL}/api/artists`)
 
 const loadSongs = (id) => loadJson(`${BASE_URL}/api/artists/${id}/songs`)
 
-export { loadArtists, loadSongs }
+const loadSearch = (query) => loadJson(`${BASE_URL}/api/songs/search/${query}`)
+
+export { loadArtists, loadSongs, loadSearch }
