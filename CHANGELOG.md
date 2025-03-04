@@ -1,3 +1,30 @@
+# Cours 6 - Custom events and search
+TODO :
+- Implémenter les customs events pour le bouton play de chaque chanson
+- Implémenter la recherche en:
+   - Se servant de l'input de recherche pour rediriger sur une url du style "#search-moncritèredereche"
+   - Adaptant le routeur + api + partie affichage pour afficher les chansons récupérées avec l'endpoint de recherche
+
+CHANGES :
+Events:
+1. Créer un custom event dans elements/song-item.js. Après la génération du HTML (typiquement dans notre fonction render), créer un listener sur le bouton play qui intercepte l'event
+2. Dans cet event click, le prevent-er et le dispatcher plus haut (au niveau de song-item lui-même, via "this")
+3. Binder correctement l'event que nous avions initialiment mis dans sections/songs.js en utilisant le nom correct ("play_click" au lieu de "click")
+NB: Les noms d'events sont choisis arbitrairement
+
+Search:
+1. Générer une URL de recherche bien formée depuis le champ de recherche (exemple: #search-fade)
+  A. Créer un listener sur le bouton loupe pour activer/désactiver la classe active de l'input de recherche.
+  B. Créer un listener sur l'input pour mettre l'url à jour, basée sur la valeur entrée dans l'input (égal le listener, tant que ça change à un moment donné). Tada!
+2. Créer une nouvelle route dans le routeur qui permet de charger des résultats de recherche pour un terme donné, passé en paramètres (le "fade" de "#search-fade")
+  A. Commençons par ajouter une fonction dans api.js pour charger les résultats de recherche, basé sur l'endpoint vu ensemble et l'exporter (loadSearch)
+  B. Dans sections/songs.js, nous savons déjà charger les chansons d'un artiste sous forme de tableau, puis en afficher le résultat. Pour la recherche, les deux seules différences résident dans le titre de la section et la provenance des données... Le reste est identique
+  C. Séparer la méthode displayArtistSongs en deux pour garder une partie "affichage d'un tableau de chansons" et une autre "charger les chansons d'un artiste et appeler la méthode d'affichage"
+  D. Exporter cette nouvelle méthode
+
+  Commençons par le début ! Dans index.js, nouveau case "#search"
+
+
 # Cours 5 - Player
 TODO :
 Implémenter le player, en réalisant :
