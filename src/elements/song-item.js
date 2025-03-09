@@ -1,4 +1,5 @@
 const playClick = new CustomEvent('play_click')
+const favoriteClick = new CustomEvent('favorite_click')
 
 class SongItem extends HTMLElement {
   // Définit la liste des attributs qui seront observés et donc appelerons attributeChangedCallback
@@ -44,6 +45,12 @@ class SongItem extends HTMLElement {
     this.querySelector('.play-button').addEventListener('click', (e) => {
       e.preventDefault()
       this.dispatchEvent(playClick)
+    })
+
+    // Pareil ici, juste un nom différent
+    this.querySelector('.favorite-button').addEventListener('click', (e) => {
+      e.preventDefault()
+      this.dispatchEvent(favoriteClick)
     })
   }
 }

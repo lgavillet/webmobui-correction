@@ -9,7 +9,7 @@ import { displaySection, activateLink } from './helpers.js'
 
 // Code des sections
 import { displayArtists } from './sections/artists.js'
-import { displayArtistSongs, displaySearchSongs } from './sections/songs.js'
+import { displayArtistSongs, displaySearchSongs, displayFavoriteSongs } from './sections/songs.js'
 
 const router = () => {
   const hash = window.location.hash || '#home'
@@ -49,6 +49,7 @@ const router = () => {
       // Pas de logique pour l'instant, on verra ça plus tard... En l'occurence, cela va juste activer la
       // section list dans son dernier état connu
       displaySection('#list')
+      displayFavoriteSongs()
     break;
   }
 }

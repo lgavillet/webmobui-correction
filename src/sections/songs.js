@@ -1,5 +1,6 @@
 import { loadSongs, loadSearch } from '../api.js'
 import playSong from './player.js'
+import {getItem, getItems, setItem, removeItem} from '../local-storage.js'
 
 // Récupérer le tag contenant la liste des chansons et le titre de la section
 const songList = document.querySelector('.list')
@@ -20,11 +21,30 @@ const displaySongArray = (songs) => {
     const songItem = document.createElement('song-item')
 
     songItem.setAttribute('title', song.title)
-    songItem.setAttribute('favorite', false) // ou true, pour plus tard
+    songItem.setAttribute('favorite', !!getItem(song.id))
+
+    // NB: Pourquoi '!!' ? En gros: ça permet de convertir ce qui suit en booléen true/false.
+    // Il y a une valeur ? -> C'est true
+    // Il n'y a pas de valeur (null, undefined, false,...) ? -> C'est false
+    // Autrement, getItem retourne soit l'objet qu'il retrouve, soit un null, ce qui n'est pas
+    // très joli d'un point de vue code... voilà :)
 
     // Lorsque l'on clique sur play
     songItem.addEventListener('play_click', () => {
       playSong(song, songs)
+    })
+
+    // Lorsque l'on clique sur le coeur, le but est d'inverser l'état en cours
+    songItem.addEventListener('favorite_click', () => {
+      // Est-ce que ça nous retourne quelque chose (et donc que c'est dans la liste?)
+      if(getItem(song.id)) {
+        removeItem(song.id)
+      } else {
+        setItem(song.id, song)
+      }
+
+      // On met à jour l'attribute favorite pour déterminer son état
+      songItem.setAttribute('favorite', !!getItem(song.id))
     })
 
     // Insérer dans la liste
@@ -58,5 +78,14 @@ const displaySearchSongs = async (query) => {
   displaySongArray(songs)
 }
 
+// S'occupe d'afficher les chansons favorites
+// Pour cela, on va utiliser getItems du fichier local-storage.js qui lui sait nous retourner
+// un tableau de chanson, stocké dans localStorage
+const displayFavoriteSongs = () => {
+  const songs = getItems()
 
-export { displayArtistSongs, displaySearchSongs }
+  titreList.innerHTML = `Favoris`
+  displaySongArray(songs)
+}
+
+export { displayArtistSongs, displaySearchSongs, displayFavoriteSongs }

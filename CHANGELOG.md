@@ -1,3 +1,19 @@
+# Cours 7 - Favoris
+TODO:
+- Implémenter la liste des favoris en se servant du local storage comme API de stockage
+
+CHANGES:
+1. Ajouter un fichier local-storage.js avec les fonctions d'aide proposées dans le cours (pour l'occasion, on se servira de localstorage comme étant un genre de tableau)
+2. Subdiviser le problème en deux plus petits problèmes : l'ajout/suppresion et l'affichage
+3. Ajout/Suppression :
+  A. Dans song-item, créer un nouveau custom event pour nous permettre d'écouter le click sur le bouton favoris. Si pas déjà fait, utiliser un attribut pour mettre à jour l'icone (soit en variant la valeur de l'attribut, soit en ajoutant/supprimant l'attribut)
+  B. Dans songs.js, à la création des éléments de la liste, ajouter un listener sur ce nouvel event dans lequel on ajoutera la logique d'ajout suppression. Pour cela, on va se baser sur l'id de la chanson (unique) comme clé dans localstorage
+  C. Toujours dans songs.js, mettre à jour l'état initial de l'attribut pour connaitre l'état de l'icône lors de la création de l'élément, en testant si la chanson est présente ou non dans le local storage
+4. Affichage:
+  A. Créer une nouvelle méthode qui affichera les favoris en les chargeant depuis le localstorage (displayFavoriteSongs)
+  B. La récupérer dans index.js et l'appeler dans le 'case' correspondant au sein de notre "routeur"
+
+
 # Cours 6 - Custom events and search
 TODO :
 - Implémenter les customs events pour le bouton play de chaque chanson
