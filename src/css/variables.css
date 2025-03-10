@@ -18,3 +18,13 @@
   */
   --default-transition: 300ms ease-in-out;
 }
+
+body.offline {
+  --primary-color: #ff0000;
+  --primary-color-dark: #aa0000;
+
+  nav a {
+    opacity: .5;
+    pointer-events: none;
+  }
+}
