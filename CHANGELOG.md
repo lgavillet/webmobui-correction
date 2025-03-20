@@ -1,3 +1,16 @@
+# Cours 8 - Lyrics
+TODO:
+- Implémenter les lyrics selon slides du cours
+
+CHANGES:
+1. Créer la logique d'affichage:
+  A. Commençons par ajouter une fonction dans api.js pour charger les déatils d'une chanson (contenant ses lyrics), basé sur l'endpoint vu ensemble, puis l'exporter (loadSongDetails)
+  B. Dans sections/songs.js, importer la méthode depuis l'api et créer une nouvelle méthode qui servira à charger et afficher les détails. Pour ce faire, 1-2 querySelectors pour récupérer les détails à remplacer, un call à la méthode de l'api et ensuite, du remplacement de texte.
+  C. Exporter cette méthode et la récupérer dans index.js. Créer ensuite une nouvelle route correspondante à #songs-:id et appeler cette méthode.
+2. Créer le lien dans les song-items
+  A. Lors de la création d'un song-item, rajouter un attribute pour la création du lien (soit un href complet, soit juste l'id)
+  B. Aller dans song-item, lire l'attribut et remplir le href du lien grâce à celui-ci
+
 # Cours 7 - Favoris
 TODO:
 - Implémenter la liste des favoris en se servant du local storage comme API de stockage
@@ -37,9 +50,6 @@ Search:
   B. Dans sections/songs.js, nous savons déjà charger les chansons d'un artiste sous forme de tableau, puis en afficher le résultat. Pour la recherche, les deux seules différences résident dans le titre de la section et la provenance des données... Le reste est identique
   C. Séparer la méthode displayArtistSongs en deux pour garder une partie "affichage d'un tableau de chansons" et une autre "charger les chansons d'un artiste et appeler la méthode d'affichage"
   D. Exporter cette nouvelle méthode
-
-  Commençons par le début ! Dans index.js, nouveau case "#search"
-
 
 # Cours 5 - Player
 TODO :
