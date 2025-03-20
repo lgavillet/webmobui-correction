@@ -9,7 +9,7 @@ import { displaySection, activateLink } from './helpers.js'
 
 // Code des sections
 import { displayArtists } from './sections/artists.js'
-import { displayArtistSongs, displaySearchSongs, displayFavoriteSongs } from './sections/songs.js'
+import { displayArtistSongs, displaySearchSongs, displayFavoriteSongs, displaySongsLyrics } from './sections/songs.js'
 
 const router = () => {
   const hash = window.location.hash || '#home'
@@ -38,6 +38,11 @@ const router = () => {
         displaySection('#artists')
         displayArtists()
       }
+    break;
+
+    case '#songs':
+      displaySection('#lyrics')
+      displaySongsLyrics(hashSplit[1])
     break;
 
     case '#search':
