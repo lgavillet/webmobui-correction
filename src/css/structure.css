@@ -3,7 +3,8 @@
 
 /* Important, car par défaut, la hauteur est définie par la taille du contenu. Cela ne va donc pas jusqu'en bas
    si pas assez de contenu */
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -22,12 +23,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-shrink: 0; /* pas le droit de se réduire */
+  flex-shrink: 0;
+  /* pas le droit de se réduire */
 
   padding: 30px;
   height: 60px;
   /* un background dégradé... */
-  background: linear-gradient(0deg, var(--bg-color) 0%, var(--primary-color-dark) 150%); /* démarrer plus haut avec 150% */
+  background: linear-gradient(0deg, var(--bg-color) 0%, var(--primary-color-dark) 150%);
+  /* démarrer plus haut avec 150% */
 
   #logo {
     text-decoration: none;
@@ -38,7 +41,8 @@ header {
       /* on anime le logo s'il a la classe animated, avec les keyframes "logo-scale" définies plus bas */
       /* l'idée sera d'ajouter cette classe quand une chanson est en cours de lecture */
       animation-duration: 2s;
-      animation-name: logo-scale; /* voir plus bas */
+      animation-name: logo-scale;
+      /* voir plus bas */
       animation-iteration-count: infinite;
     }
 
@@ -57,7 +61,7 @@ header {
 
     #search-input {
       /* on affiche le search input en absolute. Cela permet de passer par-dessus le logo sur les petits écrans */
-      position:  absolute;
+      position: absolute;
       right: 4rem;
 
       height: 3rem;
@@ -73,7 +77,8 @@ header {
       opacity: 0;
       transition: opacity var(--default-transition);
 
-      &.active { /* avec la classe "active", on affiche */
+      &.active {
+        /* avec la classe "active", on affiche */
         visibility: visible;
         opacity: 1;
       }
@@ -90,6 +95,7 @@ header {
 /* animation pour le logo */
 /* https://developer.mozilla.org/fr/docs/Web/CSS/@keyframes */
 @keyframes logo-scale {
+
   /* A un quart de l'animation, le logo sera agrandi d'1.15 fois sa taille */
   25% {
     transform: scale(1.15);
@@ -109,22 +115,21 @@ main {
   flex-grow: 1;
 
   padding: 50px 30px;
-  overflow-y: auto; /* permet de scroller au sein du main et non sur toute la page */
+  overflow-y: auto;
+  /* permet de scroller au sein du main et non sur toute la page */
 
   /********************************************************************************/
   /* sections */
 
-  section {
+  >* {
     /* chaque section est un container flex en column */
     flex-direction: column;
 
-    display: none;
+    display: flex;
     margin: auto;
-    max-width: 1200px; /* max-width pour les gros écrans... éviter d'avoir une liste de 12'000px de large */
+    max-width: 1200px;
+    /* max-width pour les gros écrans... éviter d'avoir une liste de 12'000px de large */
 
-    &.active { /* avec la classe "active", on affiche la section */
-      display: flex;
-    }
 
     &#player-section {
       height: 100%;
@@ -141,7 +146,8 @@ main {
 /* footer */
 
 footer {
-  flex-shrink: 0; /* pas le droit de se réduire */
+  flex-shrink: 0;
+  /* pas le droit de se réduire */
 
   height: 100px;
   background: var(--secondary-color);
