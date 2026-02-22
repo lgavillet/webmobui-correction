@@ -39,19 +39,16 @@
   </header>
 
   <main>
-    <!-- ajouter la classe "active" à une section pour l'afficher -->
-    <!-- exemple : <section id="home-section" class="active"> -->
-
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="home-section">
+    <section id="home-section" style="display:none">
       <h1 class="hero">Bienvenue</h1>
       <h4>Playlists</h4>
     </section>
 
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="player-section">
+    <section id="player-section" style="display:none">
       <!-- utiliser l'id de cet élément pour intéragir avec le vrai lecteur audio -->
       <audio id="audio-player" controls></audio>
 
@@ -108,20 +105,10 @@
 
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="artists-section" class="active">
+    <section id="artists-section">
       <h4>Artistes</h4>
 
       <div class="artist-list">
-        <a href="#">
-          <img src="http://placecats.com/200/300" />
-          <div class="artist-list-item-title">Kungs</div>
-        </a>
-
-        <a href="#">
-          <img src="http://placecats.com/200/300" />
-          <div class="artist-list-item-title">Kungs</div>
-        </a>
-
         <a href="#">
           <img src="http://placecats.com/200/300" />
           <div class="artist-list-item-title">Kungs</div>
@@ -131,7 +118,7 @@
 
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="list-section">
+    <section id="list-section" style="display:none">
       <h4>
         Artistes > Kungs
       </h4>
@@ -176,7 +163,7 @@
 
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="lyrics-section">
+    <section id="lyrics-section" style="display:none">
       <h4>Never going home</h4>
       <h5>Kungs</h5>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis elit maximus, consequat velit vitae, laoreet

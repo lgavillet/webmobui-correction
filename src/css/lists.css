@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
 
-  > * {
+  >* {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -55,14 +55,14 @@
   gap: 1rem;
 
   /* si on a un descendant direct qui est en hover, alors ceux qui ne sont pas en hover seront masqués */
-  &:has(> :hover) > :not(:hover) img {
+  &:has(> :hover)> :not(:hover) img {
     opacity: .1;
   }
 
   /* on s'assure que ça ne s'applique qu'au type d'élément de premier niveau avec un * pour se permettre d'utiliser les
   custom element. Autrement, si on gardait des "a", les "*" pourraient être remplacés par des "a" et pas besoin de l'opérateur
   descendant direct */
-  & > * {
+  &>* {
     /* position relative permet de définir cet élément comme le nouveau point de référence pour les éléments enfants
     en absolute. Sans cette ligne, "top: 0" sur un enfant serait résolu par rapport au body - en haut à gauche de la page.
     Avec cette ligne, "top: 0" sur un enfant sera résolu au point de départ du parent
@@ -77,9 +77,12 @@
     font-weight: bold;
 
     /* affichage d'un ellipsis */
-    white-space: nowrap; /* les espaces deviennent insécables  */
-    overflow: hidden; /* on cache ce qui dépasse */
-    text-overflow: ellipsis; /* on ajoute un ellipsis si ça dépasse */
+    white-space: nowrap;
+    /* les espaces deviennent insécables  */
+    overflow: hidden;
+    /* on cache ce qui dépasse */
+    text-overflow: ellipsis;
+    /* on ajoute un ellipsis si ça dépasse */
 
     &:hover img {
       opacity: 0.9;
