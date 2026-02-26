@@ -47,7 +47,7 @@
 /********************************************************************************/
 /* artists list */
 
-.artist-list {
+artist-list {
   /* définition en tant que container flex */
   display: flex;
   flex-wrap: wrap;

@@ -8,7 +8,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
-  max-width: 400px; /* valeur arbitraire pour qu'il ne s'écarte pas trop */
+  max-width: 400px;
+  /* valeur arbitraire pour qu'il ne s'écarte pas trop */
 
   #player-thumbnail {
     align-self: center;
@@ -19,7 +20,8 @@
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover; /* trick pour que l'image couvre toute la box. Voir lists.css ligne 162 */
+      object-fit: cover;
+      /* trick pour que l'image couvre toute la box. Voir lists.css ligne 162 */
     }
   }
 
@@ -50,7 +52,8 @@
       background-color: var(--secondary-color);
       border-radius: 50%;
       border: 1px solid var(--border-color);
-      line-height: 0; /* trick pour éviter le padding de texte fantôme... */
+      line-height: 0;
+      /* trick pour éviter le padding de texte fantôme... */
       cursor: pointer;
       transition: box-shadow var(--default-transition);
 

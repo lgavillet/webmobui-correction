@@ -129,15 +129,14 @@ main {
     margin: auto;
     max-width: 1200px;
     /* max-width pour les gros écrans... éviter d'avoir une liste de 12'000px de large */
+  }
 
-
-    &#player-section {
-      height: 100%;
-      padding: 0;
-      /* cas special, le player prend tout l'espace et centre son contenu. Les autres section partent du haut */
-      justify-content: center;
-      align-items: center;
-    }
+  page-player {
+    height: 100%;
+    padding: 0;
+    /* cas special, le player prend tout l'espace et centre son contenu. Les autres section partent du haut */
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -145,7 +144,7 @@ main {
 /********************************************************************************/
 /* footer */
 
-footer {
+spot-footer {
   flex-shrink: 0;
   /* pas le droit de se réduire */
 

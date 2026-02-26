@@ -1,19 +1,30 @@
+// Elements
 import './elements/artist-cover.js'
+import './elements/song-item.js'
+import './elements/spot-footer.js'
+// Pages
+import './pages/page-artists.js'
+import './pages/page-home.js'
+import './pages/page-player.js'
+import './pages/page-songs.js'
 
-import { getArtists } from './api.js'
+const router = () => {
+  const main = document.querySelector('main')
+  const hashs = (window.location.hash || '#home').split('/')
 
-getArtists()
-  .then((artists) => {
-    const list = document.querySelector('.artist-list')
-    list.innerHTML = ''
+  if (hashs[0] == '#home')
+    main.innerHTML = '<page-home />'
 
-    artists.forEach((artist) => {
-      // const element = document.createElement('artist-cover')
-      // element.setAttribute('title', artist.name)
-      // element.setAttribute('cover', artist.image_url)
-      // list.append(element)
+  else if (hashs[0] == '#player')
+    main.innerHTML = '<page-player />'
 
-      // ou aussi... ;)
-      list.innerHTML += `<artist-cover title="${artist.name}" cover="${artist.image_url}" />`
-    })
-  })
+  else if (hashs[0] == '#artists' && hashs[1])
+    main.innerHTML = `<page-artist-songs artist-id="${hashs[1]}" />`
+
+  else if (hashs[0] == '#artists' && !hashs[1])
+    main.innerHTML = '<page-artists />'
+}
+
+window.addEventListener('hashchange', router)
+
+router()

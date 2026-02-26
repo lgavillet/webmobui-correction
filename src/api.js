@@ -4,4 +4,6 @@ const fetchJson = (url) => fetch(`${BASE_URL}${url}`).then((response) => respons
 
 const getArtists = () => fetchJson('/api/artists')
 
-export { getArtists }
+const getSongs = (id) => fetchJson(`/api/artists/${id}/songs`)
+
+export { getArtists, getSongs }
