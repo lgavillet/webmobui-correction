@@ -1,4 +1,5 @@
 import { getSongs } from '../api.js'
+import { playSong } from '../player.js'
 
 customElements.define("page-artist-songs", class extends HTMLElement {
   connectedCallback() {
@@ -17,13 +18,10 @@ customElements.define("page-artist-songs", class extends HTMLElement {
         const songList = this.querySelector('.list')
         // Itérer le tableau d'artistes reçus et créer les éléments correspondants
         songs.forEach((song) => {
-          // V1
-          // const songItem = document.createElement('song-item')
-          // songItem.setAttribute('title', song.title)
-          // songList.append(songItem)
-
-          // V2
-          songList.innerHTML += `<song-item title="${song.title}" />`
+          const songItem = document.createElement('song-item')
+          songItem.setAttribute('title', song.title)
+          songItem.addEventListener('click', () => playSong(song, songs))
+          songList.append(songItem)
         })
       })
   }
