@@ -20,7 +20,7 @@ customElements.define("page-artist-songs", class extends HTMLElement {
         songs.forEach((song) => {
           const songItem = document.createElement('song-item')
           songItem.setAttribute('title', song.title)
-          songItem.addEventListener('click', () => playSong(song, songs))
+          songItem.addEventListener('play_click', () => playSong(song, songs))
           songList.append(songItem)
         })
       })

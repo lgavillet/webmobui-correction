@@ -1,3 +1,7 @@
+// Custom events
+const playClickEvent = new CustomEvent('play_click')
+
+// Custom element
 customElements.define('song-item', class extends HTMLElement {
   // Définit la liste des attributs qui seront observés et donc appelerons attributeChangedCallback
   // lorsqu'il y a une modification
@@ -33,5 +37,10 @@ customElements.define('song-item', class extends HTMLElement {
           <span class="material-icons">play_arrow</span>
         </button>
       </div>`
+
+    // Définition du custom event pour le bouton play
+    this.querySelector('.play-button').addEventListener('click', () => {
+      this.dispatchEvent(playClickEvent)
+    })
   }
 })
